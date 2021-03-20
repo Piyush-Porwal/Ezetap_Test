@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.ezetap.test.ui.customUi.CustomUiViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/no_asset_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/brownish_grey_two"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="50dp"
+            android:layout_centerInParent="true"
+            android:text="@{viewmodel.errorMsg}"
+            tools:text="Something Went Wrong."
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/refresh_btn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="160dp"
+            android:layout_height="57dp"
+            android:text="@string/refresh"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="111dp"
+            android:layout_below="@+id/error_tv"
+            android:layout_centerInParent="true"
+            app:cornerRadius="22dp"
+            app:strokeColor="@color/colorPrimary"/>
+    </RelativeLayout>
+</layout>
+

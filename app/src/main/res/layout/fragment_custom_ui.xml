@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.ezetap.test.ui.customUi.CustomUiViewModel" />
+
+        <variable
+            name="customUIModel"
+            type="com.ezetap.test.data.customUi.model.CustomUIModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/parent_view_custom_ui_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            imageUrl="@{customUIModel.logoUrl}"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textStyle="bold"
+           android:fontFamily="@font/lato_bold"
+           android:textSize="25sp"
+           android:layout_gravity="center"
+           android:layout_marginBottom="20dp"
+           android:text="@{customUIModel.headingText}"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/asset_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isLoading="@{viewmodel.isLoading}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/shimmer_loading_layout" />
+
+                <include layout="@layout/shimmer_loading_layout" />
+
+                <include layout="@layout/shimmer_loading_layout" />
+
+                <include layout="@layout/shimmer_loading_layout" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <include
+            android:id="@+id/error_view"
+            layout="@layout/error_view_layout"
+            isGone="@{!viewmodel.hasError}"/>
+    </LinearLayout>
+
+</layout>

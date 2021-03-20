@@ -1,0 +1,61 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "20e51240389c719f99c3e13ffb4c0a26",
+    "entities": [
+      {
+        "tableName": "customUiEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `logo-url` TEXT, `heading-text` TEXT, `uidata` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "logoUrl",
+            "columnName": "logo-url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headingText",
+            "columnName": "heading-text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uidata",
+            "columnName": "uidata",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_customUiEntity_id",
+            "unique": true,
+            "columnNames": [
+              "id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_customUiEntity_id` ON `${TABLE_NAME}` (`id`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '20e51240389c719f99c3e13ffb4c0a26')"
+    ]
+  }
+}
